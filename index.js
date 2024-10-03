@@ -24,6 +24,24 @@ app.get('/send', (req, res) => {
     res.render('send'); // Renderize a página de envio de mensagens
 });
 
+app.post('/send', async (req, res) => {
+    const token = req.cookies.token;
+    if (!token) return res.redirect('/login'); // Verifique se o usuário está autenticado
+
+    const user = jwt.verify(token, process.env.JWT_SECRET); // Decodifique o token para obter o usuário
+    const { receiver, content } = req.body; // Suponha que você tenha um campo 'receiver' no formulário de envio
+
+    // Crie um novo objeto de mensagem
+    const newMessage = new Message({
+        sender: user.username,
+        receiver,
+        content
+    });
+
+    // Salve a mensagem no banco de dados
+    await newMessage.save();
+    res.redirect(`/messages/${receiver}`); // Redirecione para a conversa com o destinatário
+});
 
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;

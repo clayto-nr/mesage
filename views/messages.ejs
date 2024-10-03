@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens com <%= contact %></title>
+</head>
+<body>
+    <h1>Mensagens com <%= contact %></h1>
+    <div>
+        <% messages.forEach(message => { %>
+            <p><strong><%= message.sender %>:</strong> <%= message.content %></p>
+        <% }) %>
+    </div>
+    
+    <form action="/messages/<%= contact %>" method="POST">
+        <textarea name="content" placeholder="Digite sua mensagem..." required></textarea>
+        <button type="submit">Enviar Mensagem</button>
+    </form>
+
+    <a href="/contacts">Voltar para Contatos</a>
+</body>
+</html>

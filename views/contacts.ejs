@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contatos</title>
+</head>
+<body>
+    <h1>Contatos</h1>
+    <ul>
+        <% unreadCounts.forEach(contact => { %>
+            <li>
+                <a href="/messages/<%= contact.username %>">
+                    <%= contact.username %> 
+                    <% if (contact.unreadCount > 0) { %>
+                        (<%= contact.unreadCount %> novas mensagens)
+                    <% } %>
+                </a>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/send">Enviar Mensagem</a>
+</body>
+</html>

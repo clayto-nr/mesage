@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Mensagem</title>
+</head>
+<body>
+    <h1>Enviar Mensagem</h1>
+    <form action="/send" method="POST">
+        <label for="receiver">Para:</label>
+        <input type="text" id="receiver" name="receiver" required>
+        <br>
+        <label for="content">Mensagem:</label>
+        <textarea id="content" name="content" required></textarea>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    <a href="/contacts">Voltar para Contatos</a>
+</body>
+</html>

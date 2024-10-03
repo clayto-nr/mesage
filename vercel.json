@@ -1,10 +1,20 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/index.js" }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://mongo:mongo@mongo.lgbsi.mongodb.net/app_login?retryWrites=true&w=majority",
+    "JWT_SECRET": "seu_segredo_jwt",
+    "PORT": "5000"
   }
-  
+}

@@ -2,14 +2,157 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #0D0D0E;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        p {
+            color: #7C7C83;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .esquerda {
+            display: flex;
+            width: 50%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 20px;
+            gap: 8px;
+            border: 1px solid #E3E3E4;
+        }
+
+        .direita {
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .grup {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 16px;
+            max-width: 444px;
+            width: 100%;
+        }
+
+        label {
+            color: #0D0D0E;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #E3E3E4;
+            width: 100%;
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        button {
+            padding: 12px 32px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border-radius: 8px;
+            background: #3984DD;
+            transition: background-color 0.3s;
+            border: none;
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #3983ddc9;
+        }
+
+        a {
+            color: #3984DD;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-gp {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .esquerda {
+                width: 100%;
+                align-items: center;
+                text-align: center;
+            }
+            .direita {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Registrar</h1>
-    <form action="/register" method="POST">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Senha" required>
-        <button type="submit">Registrar</button>
-    </form>
+    <div class="container">
+        <div class="esquerda">
+            <h1>Registrar</h1>
+            <p>Crie sua conta preenchendo os campos abaixo:</p>
+        </div>
+        <div class="direita">
+            <form class="grup" action="/register" method="POST">
+                <div class="input-gp">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="exemplo" required>
+                </div>
+                <div class="input-gp">
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" id="password" placeholder="exemplo" required>
+                </div>
+                <button type="submit">Registrar</button>
+                <p>
+                    Já tem uma conta? <a href="/login">Fazer login</a>
+                </p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

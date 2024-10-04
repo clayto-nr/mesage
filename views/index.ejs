@@ -2,10 +2,75 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .welcome {
+            flex: 1;
+            text-align: center;
+        }
+        .buttons {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        a {
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: white;
+            background-color: #1f1f1f;
+            border: 1px solid #444;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 200px;
+            align-items: center;
+            text-align: center;
+        }
+        a:hover {
+            background-color: #333;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .buttons {
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo ao sistema de mensagens!</h1>
-    <a href="/login">Login</a> | <a href="/register">Registrar</a>
+    <div class="content">
+        <div class="esquerda">
+            <h1>Sign in</h1>
+            <p>Entre com seu username e senha</p>
+        </div>
+
+        <div class="direita">
+            <div class="buttons">
+                <a href="/login">Login</a>
+                <a href="/register">Registrar</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

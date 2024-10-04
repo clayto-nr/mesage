@@ -4,12 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagens com <%= contact %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #212529;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        .message-container {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .message.sender {
+            background: #e0e0e0; /* Cinza claro para mensagens enviadas */
+            text-align: right;
+        }
+        .message.receiver {
+            background: #d1e7dd; /* Verde claro para mensagens recebidas */
+            text-align: left;
+        }
+        textarea {
+            width: 100%;
+            height: 60px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007bff; /* Azul */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0056b3; /* Azul escuro */
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff; /* Azul */
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Mensagens com <%= contact %></h1>
-    <div>
+    <div class="message-container">
         <% messages.forEach(message => { %>
-            <p><strong><%= message.sender %>:</strong> <%= message.content %></p>
+            <div class="message <%= message.sender === user.username ? 'sender' : 'receiver' %>">
+                <strong><%= message.sender %>:</strong> <%= message.content %>
+            </div>
         <% }) %>
     </div>
     
@@ -18,6 +89,6 @@
         <button type="submit">Enviar Mensagem</button>
     </form>
 
-    <a href="/contacts">Voltar para Contatos</a>
+    <a href="/contacts" class="back-link">Voltar para Contatos</a>
 </body>
 </html>

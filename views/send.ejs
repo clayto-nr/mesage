@@ -2,19 +2,81 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enviar Mensagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #212529;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007bff; /* Azul */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0056b3; /* Azul escuro */
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff; /* Azul */
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Enviar Mensagem</h1>
     <form action="/send" method="POST">
         <label for="receiver">Para:</label>
-        <input type="text" id="receiver" name="receiver" required>
-        <br>
+        <input type="text" id="receiver" name="receiver" placeholder="Nome do destinatário" required>
+        
         <label for="content">Mensagem:</label>
-        <textarea id="content" name="content" required></textarea>
-        <br>
+        <textarea id="content" name="content" placeholder="Digite sua mensagem..." required></textarea>
+        
         <button type="submit">Enviar</button>
     </form>
-    <a href="/contacts">Voltar para Contatos</a>
+    <a href="/contacts" class="back-link">Voltar para Contatos</a>
 </body>
 </html>

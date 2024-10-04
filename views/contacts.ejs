@@ -2,7 +2,67 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #212529;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        a {
+            text-decoration: none;
+            color: #343a40;
+            font-weight: 500;
+        }
+        a:hover {
+            color: #007bff; /* Azul */
+        }
+        .new-messages {
+            font-weight: bold;
+            color: #dc3545; /* Vermelho */
+        }
+        .send-message {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #007bff; /* Azul */
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+        .send-message:hover {
+            background: #0056b3; /* Azul escuro */
+        }
+    </style>
 </head>
 <body>
     <h1>Contatos</h1>
@@ -11,13 +71,13 @@
             <li>
                 <a href="/messages/<%= contact.username %>">
                     <%= contact.username %> 
-                    <% if (contact.unreadCount > 0) { %>
-                        (<%= contact.unreadCount %> novas mensagens)
-                    <% } %>
                 </a>
+                <% if (contact.unreadCount > 0) { %>
+                    <span class="new-messages">(<%= contact.unreadCount %> novas mensagens)</span>
+                <% } %>
             </li>
         <% }); %>
     </ul>
-    <a href="/send">Enviar Mensagem</a>
+    <a href="/send" class="send-message">Enviar Mensagem</a>
 </body>
 </html>
